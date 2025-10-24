@@ -1,68 +1,40 @@
 import 'dart:developer';
 
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:machinetestnoviindus/apiservice/sharedpreferencehelper.dart';
-import 'package:machinetestnoviindus/constants/Approutes.dart';
-import 'package:machinetestnoviindus/constants/customsnackbar.dart';
 import 'package:machinetestnoviindus/repo/loginrepo.dart';
-import 'package:machinetestnoviindus/screens/homescreen.dart';
 
 class AuthProvider extends ChangeNotifier {
   Future<Map<String, dynamic>> loginprovider(
       String countryCode, String phone) async {
+    Map<String, dynamic> response = {
+      "status": false,
+      "message": "Login failed"
+    };
+
     try {
       var body = {
         "country_code": countryCode,
         "phone": phone,
       };
 
-      var response = await AuthRepo().login(body);
+      response = await AuthRepo().login(body);
       log(response.toString());
 
-      if (response["status"] == true) {
-        final accessToken = response["token"]?["access"];
-        final refreshToken = response["token"]?["refresh"];
+      final accessToken = response["token"]?["access"];
+      final refreshToken = response["token"]?["refresh"];
 
-        if (accessToken != null) {
-          // Save login data
-          await SharedPreferencesHelper.saveData("loginData", {
-            "token": accessToken,
-            "refreshToken": refreshToken,
-            "phone": phone,
-          
-          });
-
-          
-
-          return {
-            "status": true,
-            "message": response["message"] ?? "Login successful",
-          };
-        } else {
-         
-
-          return {
-            "status": false,
-            "message": "Invalid response from server",
-          };
-        }
-      } else {
-        
-        return {
-          "status": false,
-          "message": response["message"] ?? "Login failed",
-        };
+      if (accessToken != null) {
+        await SharedPreferencesHelper.saveData("loginData", {
+          "token": accessToken,
+          "refreshToken": refreshToken,
+          "phone": phone,
+        });
       }
     } catch (e) {
       log("Login error: $e");
-
-      return {
-        "status": false,
-        "message": "Something went wrong, please try again",
-      };
     }
+
+    return response;
   }
 }

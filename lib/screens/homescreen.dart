@@ -55,11 +55,15 @@ class _HomescreenState extends State<Homescreen> {
   ];
 
   @override
+  @override
   void initState() {
     super.initState();
-    Provider.of<HomeProvider>(context, listen: false).fetchCategoryData();
 
-    Provider.of<HomeProvider>(context, listen: false).fetchBannerData();
+    Future.delayed(Duration.zero, () {
+      final provider = Provider.of<HomeProvider>(context, listen: false);
+      provider.fetchCategoryData();
+      provider.fetchBannerData();
+    });
   }
 
   Widget build(BuildContext context) {
@@ -138,7 +142,6 @@ class _HomescreenState extends State<Homescreen> {
                                               child: SelectionButton(
                                                 text: categories[index]
                                                     ["title"],
-                                               
                                                 isSelected:
                                                     selectedIndex == index,
                                                 onTap: () {
@@ -217,8 +220,6 @@ class _HomescreenState extends State<Homescreen> {
 
                                 const SizedBox(height: 10),
                                 StyledVideoContainer(videoUrl: item["video"]),
-
-                                
 
                                 const SizedBox(height: 10),
 

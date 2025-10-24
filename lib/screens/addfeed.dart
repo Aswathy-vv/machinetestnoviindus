@@ -48,6 +48,14 @@ class _AddfeedState extends State<Addfeed> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      Provider.of<HomeProvider>(context, listen: false).fetchCategoryData();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.black,
@@ -103,12 +111,11 @@ class _AddfeedState extends State<Addfeed> {
                       try {
                         // Call your provider/API function
                         await context.read<Addfeedprovider>().addfeedprovider(
-                              imageFile!
-                                  .path, // Use .path instead of .toString()
-                              videoFile!.path,
-                              descController.text,
-                              [selectedCategoryId],
-                            );
+                          imageFile!.path, // Use .path instead of .toString()
+                          videoFile!.path,
+                          descController.text,
+                          [selectedCategoryId],
+                        );
 
                         // Optional: show success message
                         ScaffoldMessenger.of(context).showSnackBar(
