@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Addfeedrepo {
   ApiService apiService = ApiService();
 
-  Future<Map<String, dynamic>> addfeed(Map<String, dynamic> body) async {
+  Future<Map<String, dynamic>> addfeed(body) async {
     final response = await apiService.postResponse(
         Urls.MYFEED, jsonEncode(body)); // sends JSON
     return json.decode(utf8.decode(response.bodyBytes));
@@ -16,9 +16,7 @@ class Addfeedrepo {
 
   Future<Map<String, dynamic>> myfeed() async {
     try {
-     
       var response = await Addfeedrepo().apiService.getResponse(
-           
             Urls.MYFEED,
           );
 

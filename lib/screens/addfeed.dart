@@ -103,11 +103,12 @@ class _AddfeedState extends State<Addfeed> {
                       try {
                         // Call your provider/API function
                         await context.read<Addfeedprovider>().addfeedprovider(
-                          imageFile!.path, // Use .path instead of .toString()
-                          videoFile!.path,
-                          descController.text,
-                          [selectedCategoryId],
-                        );
+                              imageFile!
+                                  .path, // Use .path instead of .toString()
+                              videoFile!.path,
+                              descController.text,
+                              [selectedCategoryId],
+                            );
 
                         // Optional: show success message
                         ScaffoldMessenger.of(context).showSnackBar(
