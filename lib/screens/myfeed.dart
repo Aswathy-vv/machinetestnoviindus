@@ -168,25 +168,7 @@ class _MyfeedState extends State<Myfeed> {
                             const SizedBox(height: 10),
                             StyledVideoContainer(videoUrl: item["video"]),
 
-                            // Container(
-                            //   width: MediaQuery.of(context).size.width,
-                            //   height:
-                            //       MediaQuery.of(context).size.height * 0.4,
-                            //   decoration: BoxDecoration(
-                            //     image: DecorationImage(
-                            //       image: NetworkImage(imageUrl),
-                            //       fit: BoxFit.cover,
-                            //     ),
-                            //     borderRadius: BorderRadius.circular(12),
-                            //     boxShadow: [
-                            //       BoxShadow(
-                            //         color: Colors.black.withOpacity(0.2),
-                            //         blurRadius: 6,
-                            //         offset: const Offset(0, 3),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // ),
+                          
 
                             const SizedBox(height: 10),
 

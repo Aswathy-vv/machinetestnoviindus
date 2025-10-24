@@ -42,10 +42,10 @@ class _StyledVideoContainerState extends State<StyledVideoContainer> {
       _controller.pause();
       _currentlyPlaying = null;
     } else {
-      // Pause any currently playing video
+     
       _currentlyPlaying?._controller.pause();
 
-      // Set this as currently playing
+      
       _currentlyPlaying = this;
       _controller.play();
     }

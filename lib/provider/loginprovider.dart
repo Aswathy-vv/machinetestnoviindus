@@ -32,17 +32,17 @@ class AuthProvider extends ChangeNotifier {
             "token": accessToken,
             "refreshToken": refreshToken,
             "phone": phone,
-            // "privilege": response["privilage"],
+          
           });
 
-          // Show success SnackBar
+          
 
           return {
             "status": true,
             "message": response["message"] ?? "Login successful",
           };
         } else {
-          // Invalid response from server
+         
 
           return {
             "status": false,
@@ -50,8 +50,7 @@ class AuthProvider extends ChangeNotifier {
           };
         }
       } else {
-        // Login failed
-
+        
         return {
           "status": false,
           "message": response["message"] ?? "Login failed",

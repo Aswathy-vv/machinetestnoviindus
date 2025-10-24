@@ -25,10 +25,10 @@ class Addfeedprovider extends ChangeNotifier {
       "image": image,
       "video": video,
       "desc": desc,
-      "category": categories, // send list
+      "category": categories, 
     };
 
-    // Use your repo which posts JSON (make sure it sends Authorization header)
+    
     var response = await Addfeedrepo().addfeed(body);
     log("${response.toString()},${categories}");
     return response;

@@ -138,11 +138,7 @@ class _HomescreenState extends State<Homescreen> {
                                               child: SelectionButton(
                                                 text: categories[index]
                                                     ["title"],
-                                                // iconPath: categories[index]
-                                                //             ["image"] !=
-                                                //         null
-                                                //     ? "https:/${categories[index]["image"]}"
-                                                //     : "", // replace with actual if you want
+                                               
                                                 isSelected:
                                                     selectedIndex == index,
                                                 onTap: () {
@@ -222,25 +218,7 @@ class _HomescreenState extends State<Homescreen> {
                                 const SizedBox(height: 10),
                                 StyledVideoContainer(videoUrl: item["video"]),
 
-                                // Container(
-                                //   width: MediaQuery.of(context).size.width,
-                                //   height:
-                                //       MediaQuery.of(context).size.height * 0.4,
-                                //   decoration: BoxDecoration(
-                                //     image: DecorationImage(
-                                //       image: NetworkImage(imageUrl),
-                                //       fit: BoxFit.cover,
-                                //     ),
-                                //     borderRadius: BorderRadius.circular(12),
-                                //     boxShadow: [
-                                //       BoxShadow(
-                                //         color: Colors.black.withOpacity(0.2),
-                                //         blurRadius: 6,
-                                //         offset: const Offset(0, 3),
-                                //       ),
-                                //     ],
-                                //   ),
-                                // ),
+                                
 
                                 const SizedBox(height: 10),
 

@@ -50,15 +50,14 @@ class HomeProvider extends ChangeNotifier {
     return [];
   }
 
-  /// Category dict list from categoryData
+ 
   List get categoryTabs {
     if (categoryData != null && categoryData!["category_dict"] != null) {
       return categoryData!["category_dict"];
     }
     return [];
   }
-
-  /// Results list from categoryData
+ 
   List get results {
     if (categoryData != null && categoryData!["results"] != null) {
       return categoryData!["results"];
